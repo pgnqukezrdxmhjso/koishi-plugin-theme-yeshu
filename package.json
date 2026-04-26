@@ -1,22 +1,59 @@
 {
   "name": "koishi-plugin-theme-yeshu",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Yeshu Theme",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "scripts": {
+    "bump": "cd ../../ && yarn bump -3 theme-yeshu",
+    "build": "cd ../../ && yarn build theme-yeshu",
+    "pub": "cd ../../ && yarn pub theme-yeshu",
+    "up": "npx npm-check -u --no-color"
+  },
   "files": [
     "lib",
     "dist"
   ],
+  "contributors": [
+    "pgnqukezrdxmhjso"
+  ],
+  "homepage": "https://github.com/pgnqukezrdxmhjso/koishi-plugin-theme-yeshu",
+  "bugs": {
+    "url": "https://github.com/pgnqukezrdxmhjso/koishi-plugin-theme-yeshu/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgnqukezrdxmhjso/koishi-plugin-theme-yeshu.git"
+  },
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "theme",
+    "yeshu"
   ],
-  "devDependencies": {},
   "peerDependencies": {
+    "@koishijs/plugin-console": "^5.30.11",
     "koishi": "^4.18.10"
+  },
+  "devDependencies": {
+    "@koishijs/client": "^5.30.11"
+  },
+  "koishi": {
+    "description": {
+      "en-US": "Yeshu Theme",
+      "fr-FR": "Thème Yeshu",
+      "ja-JP": "椰树テーマ",
+      "ko-KR": "예수 테마",
+      "ru-RU": "Тема Yeshu",
+      "zh-CN": "椰树主题",
+      "zh-TW": "椰樹主題"
+    },
+    "services": {
+      "required": [
+        "console"
+      ]
+    }
   }
 }

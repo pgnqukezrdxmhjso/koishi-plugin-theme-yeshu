@@ -1,0 +1,83 @@
+@use "sass:color";
+
+:root,
+.theme-root {
+  @mixin apply-color-light($name, $base) {
+    --k-color-#{$name}: #{$base};
+    --k-color-#{$name}-shade: #{color.mix($base, #000, 90%)};
+    --k-color-#{$name}-tint: #{color.mix($base, #fff, 80%)};
+    --k-color-#{$name}-fade: #{color.adjust($base, $alpha: -0.9)};
+  }
+
+  @mixin apply-color-dark($name, $base) {
+    --k-color-#{$name}: #{$base};
+    --k-color-#{$name}-shade: #{color.mix($base, #000, 80%)};
+    --k-color-#{$name}-tint: #{color.mix($base, #fff, 90%)};
+    --k-color-#{$name}-fade: #{color.adjust($base, $alpha: -0.9)};
+  }
+
+  $w: #fff;
+  $bl: color.scale(#000, $lightness: 5%);
+  $r: color.scale(#f00, $lightness: -15%, $saturation: -0%);
+  $y: color.scale(#f9e600, $lightness: -10%, $saturation: -0%);
+  $b: color.scale(#042dee, $lightness: -15%, $saturation: -0%);
+
+  &[theme="yeshu-dark"] {
+    @font-face {
+      font-family: "WenYuan Sans VF";
+      src: url("./assets/WenYuanSansSCVF.ttf") format("truetype-variations");
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    --bg0: #{$bl};
+    --bg1: #{$b};
+    --bg2: #{$b};
+    --bg3: #{$r};
+
+    --fg1: #{$y};
+    --font-family:
+      WenYuan Sans VF, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun,
+      sans-serif;
+
+    --k-main-bg: var(--bg0);
+    --k-activity-bg: #{$y};
+    --k-status-bg: #{$y};
+
+    @include apply-color-light(primary, $w);
+
+    .layout-container {
+      .layout-aside {
+        .el-input__wrapper {
+          --el-input-border-color: #{$y};
+          --el-input-bg-color: #{$r};
+        }
+      }
+      .layout-header {
+        background-color: #{$y};
+        color: #{$bl};
+        border: 2px #{$r} solid;
+      }
+    }
+
+    .layout-activity * {
+      --k-text-light: #{$bl};
+      --k-text-active: #{$r};
+      .activity-button.active:hover {
+        color: #{$w};
+      }
+    }
+    .layout-status {
+      color: #{$bl};
+    }
+
+    .el-button--success {
+      --el-color-success: #{$r};
+      --el-button-text-color: #{$w};
+    }
+
+    input {
+      font-family: var(--font-family);
+    }
+  }
+}
