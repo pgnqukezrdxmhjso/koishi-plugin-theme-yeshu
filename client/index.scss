@@ -17,15 +17,16 @@
   }
 
   $w: #fff;
-  $bl: color.scale(#000, $lightness: 5%);
-  $r: color.scale(#f00, $lightness: -15%, $saturation: -0%);
-  $y: color.scale(#f9e600, $lightness: -10%, $saturation: -0%);
-  $b: color.scale(#042dee, $lightness: -15%, $saturation: -0%);
+  $bl: color.scale(#000, $lightness: 10%);
+  $r: color.scale(#f00, $lightness: -30%, $saturation: -15%);
+  $y: color.scale(#f9e600, $lightness: -20%, $saturation: -15%);
+  $b: color.scale(#042dee, $lightness: -30%, $saturation: -15%);
 
   &[theme="yeshu-dark"] {
     @font-face {
-      font-family: "WenYuan Sans VF";
-      src: url("./assets/WenYuanSansSCVF.ttf") format("truetype-variations");
+      font-family: "Noto Sans SC";
+      src: url("https://fastly.jsdelivr.net/gh/adobe-fonts/source-han-sans@release/Variable/WOFF2/TTF/SourceHanSans-VF.ttf.woff2")
+        format("truetype-variations");
       font-weight: 100 900;
       font-display: swap;
     }
@@ -35,14 +36,16 @@
     --bg2: #{$b};
     --bg3: #{$r};
 
-    --fg1: #{$y};
-    --font-family:
-      WenYuan Sans VF, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun,
-      sans-serif;
-
     --k-main-bg: var(--bg0);
     --k-activity-bg: #{$y};
     --k-status-bg: #{$y};
+
+    --k-color-border: #{$y};
+
+    --fg1: #{$y};
+    --font-family:
+      Noto Sans SC, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun,
+      sans-serif;
 
     @include apply-color-light(primary, $w);
 
@@ -74,6 +77,16 @@
     .el-button--success {
       --el-color-success: #{$r};
       --el-button-text-color: #{$w};
+    }
+    .el-button--success,
+    .el-button--warning,
+    .el-button--danger {
+      --el-button-hover-text-color: #{$w};
+    }
+
+    .search-word {
+      color: #{$bl};
+      --k-fill-normal: #{$y};
     }
 
     input {

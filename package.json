@@ -1,13 +1,12 @@
 {
   "name": "koishi-plugin-theme-yeshu",
   "description": "Yeshu Theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "bump": "cd ../../ && yarn bump -3 theme-yeshu",
     "build": "cd ../../ && yarn build theme-yeshu",
-    "pub": "cd ../../ && yarn pub theme-yeshu",
     "up": "npx npm-check -u --no-color"
   },
   "files": [
